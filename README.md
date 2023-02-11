@@ -1,4 +1,8 @@
 # Team6
 
-- remove the root folder
-- adding folders and files
+## Timeline
+
+Feb 10th:
+
+- set up the project with nextjs, postgreSQL and s3 bucket
+- able to add root folders to the user
