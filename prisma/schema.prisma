@@ -11,14 +11,32 @@ datasource db {
 }
 
 model RootFolderMetaData {
-  id      String @unique
-  name    String
-  owner   User   @relation(fields: [ownerId], references: [id])
-  ownerId String
+  path     String @unique
+  name     String
+  owner    User   @relation(fields: [ownerId], references: [id])
+  ownerId  String
+  folder   Folder @relation(fields: [folderId], references: [path])
+  folderId String
+}
+
+model Folder {
+  path               String               @unique
+  name               String
+  folders            FolderMetaData[]
+  RootFolderMetaData RootFolderMetaData[]
+  files              String[]
+}
+
+model FolderMetaData {
+  path     String @unique
+  name     String
+  Folder   Folder @relation(fields: [folderId], references: [path])
+  folderId String
 }
 
 model User {
   id          String               @id
   name        String
   rootFolders RootFolderMetaData[]
+  email       String
 }

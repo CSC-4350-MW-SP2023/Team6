@@ -33,8 +33,14 @@ const handler: NextApiHandler = async (req, res) => {
     data: {
       rootFolders: {
         create: {
-          id: `${ownerId}/${folderName}`,
+          path: `${ownerId}/${folderName}`,
           name: folderName,
+          folder: {
+            create: {
+              path: `${ownerId}/${folderName}`,
+              name: folderName,
+            },
+          },
         },
       },
     },

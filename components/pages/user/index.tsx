@@ -1,4 +1,5 @@
 import AddFolder from "#/components/common/AddFolder";
+import RootFolder from "#/components/common/RootFolder";
 import { userWithRootFolder } from "#/types/types";
 import React, { useState } from "react";
 
@@ -13,7 +14,7 @@ const index: React.FC<Props> = ({ user }) => {
       <AddFolder add={setRootFolders} />
       <div>
         {rootFolder.map((folder) => (
-          <div>{folder.name}</div>
+          <RootFolder key={folder.path} folder={folder} />
         ))}
       </div>
     </div>
