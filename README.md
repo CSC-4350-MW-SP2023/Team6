@@ -12,3 +12,9 @@ Feb 11th:
 - Be able to remove the root folder
 - go into folders and add new folders
 - add files
+
+feb 15th:
+
+- Refractor the code
+- Make the routes protected
+- the user makes files and folders from their account
