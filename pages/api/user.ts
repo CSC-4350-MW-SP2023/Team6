@@ -1,16 +1,10 @@
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import prisma from "#/prisma.config";
+import getUser from "#/misc/getUser";
 
 const putMethod = async (req: NextApiRequest, res: NextApiResponse) => {
-  const supabaseServerClient = createServerSupabaseClient({
-    req,
-    res,
-  });
-
-  const {
-    data: { user },
-  } = await supabaseServerClient.auth.getUser();
+  const user = await getUser(req, res);
 
   if (!user) return res.status(404);
 

@@ -2,6 +2,7 @@ import { RootFolderMetaData } from "@prisma/client";
 import React, { useRef } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Input from "./Input";
 
 interface Props {
   add: React.Dispatch<React.SetStateAction<RootFolderMetaData[]>>;
@@ -30,13 +31,13 @@ const AddFolder: React.FC<Props> = ({ add }) => {
           inputRef.current!.value = "";
         }}
       >
-        <input
+        <Input
           type="text"
-          className=" border-2"
+          placeholder="Add Folder"
           name="newFolder"
           ref={inputRef}
+          autoComplete="off"
         />
-        <button type="submit">Add Folder</button>
       </form>
     </div>
   );

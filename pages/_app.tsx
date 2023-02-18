@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
 import { useState } from "react";
+import Layout from "#/components/layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // Create a new supabase browser client on every first render.
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       initialSession={pageProps.initialSession}
     >
       <Init>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Init>
     </SessionContextProvider>
   );

@@ -1,13 +1,21 @@
 import type { NextApiHandler } from "next";
 import prisma from "#/prisma.config";
+import getUser from "#/misc/getUser";
 
 const handler: NextApiHandler = async (req, res) => {
   if (req.method != "POST") return res.status(404);
 
+  const loggedUser = await getUser(req, res);
+
+  if (!loggedUser) return res.status(404).send("No user logged in");
+
   // authenticate the user to make sure its the right user
   // in future, we are going to get the owner id from the session token
 
-  const { folderName, ownerId } = req.body;
+  const ownerId = loggedUser.user_metadata.provider_id;
+  const { folderName } = req.body;
+
+  if (!folderName) return res.status(400).send("Missing parameters");
 
   const user = await prisma.user.findUnique({
     where: {

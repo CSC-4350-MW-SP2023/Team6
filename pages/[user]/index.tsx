@@ -8,10 +8,8 @@ import { userWithRootFolder } from "#/types/types";
 const index: NextPage<{
   user: userWithRootFolder;
 }> = ({ user }) => {
-  const router = useRouter();
   return (
     <>
-      <div>{router.query.user}</div>
       <Index user={user} />
     </>
   );
