@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { forwardRef } from "react";
 
 const Input = forwardRef<
@@ -6,7 +8,7 @@ const Input = forwardRef<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   >
->((props, ref) => {
+>(function (props, ref) {
   return (
     <div className="">
       <input
@@ -18,5 +20,7 @@ const Input = forwardRef<
     </div>
   );
 });
+
+/* eslint-enable */
 
 export default Input;

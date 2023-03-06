@@ -14,7 +14,7 @@ interface Props {
   folder: IFolder;
 }
 
-const index: React.FC<Props> = ({ folder }) => {
+const Index: React.FC<Props> = ({ folder }) => {
   const [folderMetadata, setFolderMetadata] = useState<FolderMetaData[]>([]);
   const [files, setFiles] = useState<string[]>([]);
   const parentFolder = useRef(
@@ -51,14 +51,14 @@ const index: React.FC<Props> = ({ folder }) => {
       />
       <div>
         {folderMetadata.map((data) => (
-          <FolderComponent folder={data} />
+          <FolderComponent key={data.path} folder={data} />
         ))}
         {files.map((file) => (
-          <File url={file} />
+          <File key={file} url={file} />
         ))}
       </div>
     </div>
   );
 };
 
-export default index;
+export default Index;

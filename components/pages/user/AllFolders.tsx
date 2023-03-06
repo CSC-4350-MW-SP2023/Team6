@@ -54,7 +54,7 @@ const AllFolders: React.FC<Props> = ({ user }) => {
       </UserComponent>
       <section className="my-8 flex flex-col-reverse">
         {user.rootFolders.map((folder) => (
-          <RootFolder folder={folder} />
+          <RootFolder key={folder.path} folder={folder} />
         ))}
       </section>
     </div>

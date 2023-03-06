@@ -7,7 +7,7 @@ import Input from "#/components/common/Input";
 import { Plus } from "#/components/common/icons";
 import axios from "axios";
 
-const page: NextPage = () => {
+const Page: NextPage = () => {
   const router = useRouter();
   const user = useUser();
 
@@ -81,4 +81,4 @@ const page: NextPage = () => {
   );
 };
 
-export default page;
+export default Page;
