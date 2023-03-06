@@ -4,6 +4,7 @@ import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
 import { useState } from "react";
 import Layout from "#/components/layout";
+import { PDFViewer } from "@react-pdf/renderer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // Create a new supabase browser client on every first render.

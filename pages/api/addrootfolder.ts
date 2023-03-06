@@ -13,7 +13,7 @@ const handler: NextApiHandler = async (req, res) => {
   // in future, we are going to get the owner id from the session token
 
   const ownerId = loggedUser.user_metadata.provider_id;
-  const { folderName } = req.body;
+  const { folderName, description } = req.body;
 
   if (!folderName) return res.status(400).send("Missing parameters");
 
@@ -43,6 +43,7 @@ const handler: NextApiHandler = async (req, res) => {
         create: {
           path: `${ownerId}/${folderName}`,
           name: folderName,
+          description,
           folder: {
             create: {
               path: `${ownerId}/${folderName}`,

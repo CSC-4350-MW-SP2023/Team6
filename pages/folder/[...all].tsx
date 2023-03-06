@@ -13,7 +13,8 @@ const folder: NextPage<any> = ({ folder }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const path = ctx.query?.path as string;
+  let params = ctx.query.all as string[];
+  let path = params.join("/");
 
   if (!path)
     return {

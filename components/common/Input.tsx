@@ -11,7 +11,7 @@ const Input = forwardRef<
     <div className="">
       <input
         type="text"
-        className=" border-2 px-2 py-2 w-[20rem] rounded my-4"
+        className=" border-2 px-2 py-2 w-[18rem] text-gray-500 focus:outline-gray-500 rounded my-4"
         ref={ref}
         {...props}
       />

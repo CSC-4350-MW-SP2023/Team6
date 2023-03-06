@@ -5,9 +5,9 @@ import getUser from "#/misc/getUser";
 const handler: NextApiHandler = async (req, res) => {
   if (req.method != "POST") return res.status(404).send("Invalid route");
   // auth the user
-  const user = await getUser(req, res);
+  const loggedUser = await getUser(req, res);
 
-  if (!user) return res.status(404).send("No user");
+  if (!loggedUser) return res.status(404).send("No user");
   // get the parent and add the file
 
   const { file } = req.body as { file: string };
@@ -19,7 +19,7 @@ const handler: NextApiHandler = async (req, res) => {
   const parent = file.substring(0, lastSlashIndex);
   const ownerId = file.substring(0, firstSlashIndex);
 
-  if (ownerId != user.user_metadata.provider_id) {
+  if (ownerId != loggedUser.user_metadata.provider_id) {
     return res
       .status(400)
       .send("Can't add the file since you are a different user");

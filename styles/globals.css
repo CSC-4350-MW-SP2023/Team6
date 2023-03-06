@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  h1 {
+    @apply font-semibold text-4xl my-4;
+  }
+
+  h2 {
+    @apply font-semibold text-3xl my-2;
+  }
+  h3 {
+    @apply font-semibold text-xl my-2;
+  }
+
+  p {
+    @apply text-gray-700;
+  }
+}
