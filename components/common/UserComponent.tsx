@@ -9,8 +9,13 @@ interface Props {
 const UserComponent: React.FC<Props> = ({ children }) => {
   const router = useRouter();
   const loggedUser = useUser();
-  const userId = router.query.user as string;
+  let userId = router.query.user as string;
 
+  if (!userId) {
+    if (router.query.all?.length) {
+      userId = router.query.all[0];
+    }
+  }
   return (
     <>
       {loggedUser && loggedUser.user_metadata.provider_id == userId && children}
